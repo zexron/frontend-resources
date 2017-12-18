@@ -1,0 +1,14 @@
+* {
+  margin                      : 0;
+  padding                     : 0;
+  position                    : relative;
+  user-select                 : none;
+  box-sizing                  : border-box;
+  -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+  -webkit-font-smoothing      : antialiased; /*chrome、safari*/
+  -moz-osx-font-smoothing     : grayscale; /*firefox*/
+  max-height                  : 999999px; /* 防止Font Boosting(某些手机字体异样) */
+  outline                     : none;
+  -webkit-appearance          : none;
+  -moz-appearance             : none;
+}
