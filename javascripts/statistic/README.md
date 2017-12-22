@@ -45,6 +45,7 @@ var options = {
   topic: 'myTopic',   // topic名
   event: 'eventName'  // 在dom元素触发'eventName'事件时将发送数据（仅限timepoint和exam类型）
 };
+// event 仅限timepoint和exam使用，对于duration类型可以用'statistic.start'和'statistic.end'事件控制
 $(elem).statistic(${type}, options);
 
 // module
@@ -105,9 +106,9 @@ StatisticManager.duration.findOne('myTopic').end();
 
 ## 关于`fineOne`和`getOne`
 Module型工具中，StatisticManager有两个获取实例的方法：`fineOne`和`getOne`，其区别为：
-- fineOne在当前已存在的实例中查找满足topic的实例，若不存在返回null
-- getOne并不进行寻找，而是在实例池中查找任意一个未在使用的实例更改其topic并返回
-- 对于duration类型，如果需要停止其计时，需要用findOne查找
+- `fineOne`在当前已存在的实例中查找满足topic的实例，若不存在返回`null`
+- `getOne`并不进行寻找，而是在实例池中查找任意一个未在使用的实例更改其topic并返回
+- 对于duration类型，如果需要**停止其计时**，要用`findOne`查找
 
 ## 其他
-- jQuery的Statistic实例对象保存在``$(elem).data(`statistic-${type}`)``中
+- jQuery的Statistic实例对象保存在``$(elem).data(`statistic.${type}`)``中
