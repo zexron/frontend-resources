@@ -68,10 +68,10 @@ $('my-statistic-elem').statistic(${type});
 $(elem).statistic(${type}, 'setTopic', 'newName');
 
 // module
-StatisticManager.${type}.getOne('oldName').setTopic('newName');
+StatisticManager.${type}.findOne('oldName').setTopic('newName');
 ```
 
-**重要！：**对于正在运行中的Duration类实例，setTopic操作相当于进行以下步骤：
+**重要**：对于正在运行中的Duration类实例，setTopic操作相当于进行以下步骤：
 - 停止当前计时器，并发送数据(end)
 - 更改topic名(setTopic)
 - 重新开始计时(start)
@@ -101,10 +101,10 @@ StatisticManager.duration.getOne('myTopic').start();
 StatisticManager.duration.findOne('myTopic').end();
 ```
 
-**重要！：**若dom元素需要销毁，在此之前**务必**对其进行end操作，否则计时器将继续运行并可能无法停止！
+**重要**：若dom元素需要销毁，在此之前**务必**对其进行end操作，否则计时器将继续运行并可能无法停止！
 
 ## 关于`fineOne`和`getOne`
-Module型工具中，StatisticManager有两个方法：`fineOne`和`getOne`，其区别为：
+Module型工具中，StatisticManager有两个获取实例的方法：`fineOne`和`getOne`，其区别为：
 - fineOne在当前已存在的实例中查找满足topic的实例，若不存在返回null
 - getOne并不进行寻找，而是在实例池中查找任意一个未在使用的实例更改其topic并返回
 - 对于duration类型，如果需要停止其计时，需要用findOne查找
